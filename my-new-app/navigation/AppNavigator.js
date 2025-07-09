@@ -6,6 +6,8 @@ import AddTaskScreen from '../screens/AddTaskScreen';
 import TaskDetailsScreen from '../screens/TaskDetailsScreen';
 import TaskTrackerScreen from '../screens/TaskTrackerScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +22,8 @@ export default function AppNavigator() {
       <Stack.Screen name="TaskDetails" component={TaskDetailsScreen} />
       <Stack.Screen name="TaskTracker" component={TaskTrackerScreen} />
       <Stack.Screen name="Notifications" component={NotificationsScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen}/>
+      
     </Stack.Navigator>
   );
 }

@@ -180,10 +180,15 @@ export default function HomeScreen({ navigation }) {
           />
           <Text style={styles.navText}>Notifications</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => {}}>
-          <Ionicons name="settings-outline" size={24} color={primaryColor} />
-          <Text style={styles.navText}>Settings</Text>
-        </TouchableOpacity>
+  <TouchableOpacity
+  style={styles.navItem}
+  onPress={() => navigation.navigate("Settings")}
+>
+  <Ionicons name="settings-outline" size={24} color={primaryColor} />
+  <Text style={styles.navText}>Settings</Text>
+</TouchableOpacity>
+
+
       </View>
     </SafeAreaView>
   );

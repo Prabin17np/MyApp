@@ -5,7 +5,7 @@ import { primaryColor, secondaryText } from "../styles";
 
 export default function TaskItem({ item, onPress, completed = false }) {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.taskItem}>
+    <TouchableOpacity onPress={onPress} style={styles.taskItem} activeOpacity={0.7}>
       <View style={styles.taskIcon}>
         <Ionicons
           name={item.icon || "ellipse-outline"}

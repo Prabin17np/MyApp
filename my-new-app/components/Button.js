@@ -13,8 +13,11 @@ export default function Button({
   return (
     <TouchableOpacity
       activeOpacity={0.7}
-      onPress={onPress}
+      onPress={onPress || (() => {})}
       disabled={disabled}
+      accessible={true}
+      accessibilityRole="button"
+      accessibilityState={{ disabled }}
       style={[
         styles.button,
         outline ? styles.buttonOutline : null,
@@ -23,11 +26,9 @@ export default function Button({
       ]}
     >
       <Text
-        style={[
-          styles.buttonText,
-          outline ? styles.buttonTextOutline : null,
-          textStyle,
-        ]}
+        style={[styles.buttonText, outline ? styles.buttonTextOutline : null, textStyle]}
+        numberOfLines={1}
+        ellipsizeMode="tail"
       >
         {title}
       </Text>
@@ -67,6 +68,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "700",
     fontSize: 16,
+    textAlign: "center",
   },
   buttonTextOutline: {
     color: primaryColor,
