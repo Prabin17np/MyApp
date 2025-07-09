@@ -31,6 +31,7 @@ const SettingsScreen = ({ navigation }) => {
 
   const handleLogout = () => {
     console.log("Logging out...");
+    navigation.replace("Login")
     // Add Firebase sign-out logic here if needed
     // firebase.auth().signOut().then(() => navigation.replace("Login"));
   };
