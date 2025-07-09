@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import * as Location from "expo-location";
-import MapView, { Marker } from "react-native-maps";
 import Button from "../components/Button";
 import styles, { primaryColor } from "../styles";
 
@@ -22,7 +21,6 @@ export default function AddTaskScreen({ navigation }) {
 
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
-  const [selectedLocation, setSelectedLocation] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -31,19 +29,11 @@ export default function AddTaskScreen({ navigation }) {
         setErrorMsg("Permission to access location was denied");
         return;
       }
+
       let currentLocation = await Location.getCurrentPositionAsync({});
-      const coords = currentLocation.coords;
-      setLocation(coords);
-      setSelectedLocation({
-        latitude: coords.latitude,
-        longitude: coords.longitude,
-      });
+      setLocation(currentLocation.coords);
     })();
   }, []);
-
-  const handleMapPress = (event) => {
-    setSelectedLocation(event.nativeEvent.coordinate);
-  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -76,28 +66,29 @@ export default function AddTaskScreen({ navigation }) {
           value={description}
         />
 
-        {/* Map Picker */}
-        <Text style={[styles.label, { marginTop: 16, marginBottom: 8 }]}>
-          Select Task Location
-        </Text>
-        {location ? (
-          <MapView
-            style={{ width: "100%", height: 200, borderRadius: 8 }}
-            initialRegion={{
-              latitude: location.latitude,
-              longitude: location.longitude,
-              latitudeDelta: 0.01,
-              longitudeDelta: 0.01,
-            }}
-            onPress={handleMapPress}
-          >
-            {selectedLocation && <Marker coordinate={selectedLocation} />}
-          </MapView>
-        ) : errorMsg ? (
-          <Text>{errorMsg}</Text>
-        ) : (
-          <Text>Loading map...</Text>
-        )}
+        {/* Location Display */}
+        <View style={styles.mapPlaceholder}>
+          {location ? (
+            <Text>
+              Latitude: {location.latitude.toFixed(4)}, Longitude: {location.longitude.toFixed(4)}
+            </Text>
+          ) : errorMsg ? (
+            <Text>{errorMsg}</Text>
+          ) : (
+            <Text>Fetching location...</Text>
+          )}
+        </View>
+
+        <Text style={[styles.label, { marginTop: 12 }]}>Search for address</Text>
+        <View style={styles.searchRow}>
+          <TextInput
+            placeholder="Enter an address to lookup"
+            style={[styles.input, { flex: 1 }]}
+          />
+          <TouchableOpacity style={styles.searchButton}>
+            <Ionicons name="search-outline" size={22} color="#fff" />
+          </TouchableOpacity>
+        </View>
 
         <Text style={[styles.label, { marginTop: 24 }]}>Geofence Radius</Text>
         <TextInput
@@ -141,7 +132,6 @@ export default function AddTaskScreen({ navigation }) {
             flexDirection: "row",
             justifyContent: "space-between",
             marginTop: 40,
-            marginBottom: 30,
           }}
         >
           <Button
@@ -154,7 +144,7 @@ export default function AddTaskScreen({ navigation }) {
             style={{ width: "48%" }}
             title="Save Task"
             onPress={() => {
-              // You can save task info here, including selectedLocation
+              // Add your save logic here if needed
               navigation.navigate("Home");
             }}
           />
