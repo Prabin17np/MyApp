@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LocationMap from "./LocationMap"; "./LocationMap.js"; // Importing the LocationMap component
 import {
   SafeAreaView,
   ScrollView,
@@ -68,16 +69,22 @@ export default function AddTaskScreen({ navigation }) {
 
         {/* Location Display */}
         <View style={styles.mapPlaceholder}>
-          {location ? (
-            <Text>
-              Latitude: {location.latitude.toFixed(4)}, Longitude: {location.longitude.toFixed(4)}
-            </Text>
-          ) : errorMsg ? (
-            <Text>{errorMsg}</Text>
-          ) : (
-            <Text>Fetching location...</Text>
-          )}
+          <LocationMap location={location} radius={geofenceRadius} />
+
         </View>
+        <TouchableOpacity
+  onPress={() => navigation.navigate("Map")}
+  style={{
+    backgroundColor: "#007bff",
+    padding: 12,
+    borderRadius: 8,
+    alignItems: "center",
+    marginTop: 20,
+  }}
+>
+  <Text style={{ color: "white", fontWeight: "bold" }}>Open Full Map</Text>
+</TouchableOpacity>
+
 
         <Text style={[styles.label, { marginTop: 12 }]}>Search for address</Text>
         <View style={styles.searchRow}>
