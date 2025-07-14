@@ -12,7 +12,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>HeyAPP</Text>
+      <Text style={styles.logo}>Drop Pin</Text>
       <View style={styles.inputView}>
         <TextInput
           style={styles.inputText}
