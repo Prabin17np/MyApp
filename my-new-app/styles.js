@@ -8,14 +8,17 @@ export const accentColor = "#3498db";
 const { width } = Dimensions.get("window");
 
 export default StyleSheet.create({
+  // General Layout
   safeArea: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#fff",
   },
   container: {
     flex: 1,
     paddingHorizontal: 16,
   },
+
+  // Header & User Info
   userHeader: {
     flexDirection: "row",
     alignItems: "center",
@@ -29,8 +32,8 @@ export default StyleSheet.create({
     marginRight: 12,
   },
   userName: {
-    fontWeight: "700",
     fontSize: 18,
+    fontWeight: "700",
     color: primaryColor,
   },
   userSubTitle: {
@@ -38,14 +41,15 @@ export default StyleSheet.create({
     color: secondaryText,
   },
 
+  // Status Boxes
   statusRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 16,
   },
   statusBox: {
-    backgroundColor: softGray,
     flex: 1,
+    backgroundColor: softGray,
     borderRadius: 12,
     paddingVertical: 20,
     alignItems: "center",
@@ -69,25 +73,26 @@ export default StyleSheet.create({
   },
   statusText: {
     marginTop: 8,
-    fontWeight: "600",
     fontSize: 14,
+    fontWeight: "600",
     color: primaryColor,
   },
 
+  // Section Title
   sectionTitle: {
-    fontWeight: "700",
     fontSize: 20,
+    fontWeight: "700",
     marginBottom: 8,
     marginTop: 12,
     color: primaryColor,
   },
-
   separator: {
     height: 1,
     backgroundColor: "#ddd",
     opacity: 0.3,
   },
 
+  // Task Overview
   taskOverviewRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -95,24 +100,24 @@ export default StyleSheet.create({
   },
   taskOverviewBox: {
     flex: 1,
+    backgroundColor: "#fdfefe",
+    borderRadius: 12,
     borderWidth: 1,
     borderColor: softGray,
-    borderRadius: 12,
     paddingVertical: 12,
     paddingHorizontal: 8,
     marginHorizontal: 4,
-    backgroundColor: "#fdfefe",
     alignItems: "center",
-    shadowColor: "#000",
     elevation: 1,
+    shadowColor: "#000",
   },
   taskOverviewSubtitle: {
-    color: secondaryText,
     fontSize: 14,
+    color: secondaryText,
   },
   taskOverviewCount: {
-    fontWeight: "700",
     fontSize: 20,
+    fontWeight: "700",
     marginTop: 4,
     color: primaryColor,
   },
@@ -121,15 +126,15 @@ export default StyleSheet.create({
   bottomNav: {
     flexDirection: "row",
     height: 60,
+    backgroundColor: "#fafafa",
     borderTopWidth: 1,
     borderTopColor: "#ddd",
-    backgroundColor: "#fafafa",
+    justifyContent: "space-around",
+    alignItems: "center",
     elevation: 6,
     shadowColor: "#000",
     shadowOpacity: 0.04,
     shadowRadius: 8,
-    justifyContent: "space-around",
-    alignItems: "center",
   },
   navItem: {
     justifyContent: "center",
@@ -145,7 +150,7 @@ export default StyleSheet.create({
     color: primaryColor,
   },
 
-  // Add Task screen
+  // Screen Headers
   screenHeader: {
     flexDirection: "row",
     alignItems: "center",
@@ -155,32 +160,34 @@ export default StyleSheet.create({
   screenHeaderWide: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     paddingVertical: 12,
     marginBottom: 12,
-    alignItems: "center",
   },
   screenTitle: {
-    fontWeight: "700",
     fontSize: 22,
+    fontWeight: "700",
     color: primaryColor,
     textAlign: "center",
     flex: 1,
   },
+
+  // Form Inputs
   label: {
-    fontWeight: "600",
     fontSize: 16,
+    fontWeight: "600",
     color: primaryColor,
     marginBottom: 6,
     marginTop: 8,
   },
   input: {
-    borderWidth: 1,
-    borderColor: softGray,
-    borderRadius: 10,
-    paddingHorizontal: 14,
-    paddingVertical: Platform.OS === "ios" ? 12 : 8,
     fontSize: 16,
     backgroundColor: "#fff",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: softGray,
+    paddingHorizontal: 14,
+    paddingVertical: Platform.OS === "ios" ? 12 : 8,
     shadowColor: "#000",
     shadowOpacity: 0.03,
     shadowOffset: { width: 0, height: 1 },
@@ -190,6 +197,8 @@ export default StyleSheet.create({
     fontSize: 12,
     color: secondaryText,
   },
+
+  // Map Placeholder
   mapPlaceholder: {
     height: 180,
     backgroundColor: "#ddd",
@@ -199,10 +208,12 @@ export default StyleSheet.create({
     marginVertical: 18,
   },
   mapPlaceholderText: {
+    fontSize: 16,
     fontWeight: "700",
     color: "#666",
-    fontSize: 16,
   },
+
+  // Search Row
   searchRow: {
     flexDirection: "row",
     marginTop: 6,
@@ -215,6 +226,8 @@ export default StyleSheet.create({
     alignItems: "center",
     marginLeft: 8,
   },
+
+  // Repeat Option
   repeatRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -231,12 +244,12 @@ export default StyleSheet.create({
     backgroundColor: primaryColor,
   },
   repeatOptionText: {
-    fontWeight: "600",
     fontSize: 14,
+    fontWeight: "600",
     color: primaryColor,
   },
 
-  // Task Details screen
+  // Task Details
   taskDetailsHeader: {
     flexDirection: "row",
     paddingVertical: 12,
@@ -260,8 +273,8 @@ export default StyleSheet.create({
     marginLeft: 10,
   },
   taskInfoTitle: {
-    fontWeight: "700",
     fontSize: 14,
+    fontWeight: "700",
     color: primaryColor,
   },
   taskInfoValue: {
@@ -271,7 +284,7 @@ export default StyleSheet.create({
     maxWidth: width * 0.7,
   },
 
-  // Task Tracker screen
+  // Task Tracker
   taskTrackerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -282,8 +295,8 @@ export default StyleSheet.create({
   },
   taskTrackerTitle: {
     flexShrink: 1,
-    fontWeight: "600",
     fontSize: 17,
+    fontWeight: "600",
     color: primaryColor,
   },
   taskTrackerSubTitle: {
@@ -293,8 +306,8 @@ export default StyleSheet.create({
   },
   taskTrackerTitleSmall: {
     flexShrink: 1,
-    fontWeight: "600",
     fontSize: 15,
+    fontWeight: "600",
     color: primaryColor,
   },
   taskTrackerSubTitleSmall: {
@@ -303,12 +316,12 @@ export default StyleSheet.create({
     marginLeft: 6,
   },
   taskTrackerStatus: {
-    fontWeight: "700",
     fontSize: 14,
+    fontWeight: "700",
     color: primaryColor,
   },
 
-  // Notifications screen
+  // Alerts & Notifications
   alertRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -316,6 +329,70 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: "#eee",
   },
+
+  //Landing Page
+ background: {
+  flex: 1,
+  width: '100%',
+  height: '100%',
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+
+imageStyle: {
   
-  
+},
+overlay: {
+  flex: 1,
+  backgroundColor: 'rgba(255, 255, 255, 0.3)', // lighter overlay to avoid blur effect
+  width: '100%',
+  paddingHorizontal: 40,
+  paddingVertical: 60,
+  justifyContent: 'space-between',
+  alignItems: 'center',
+},
+
+  header: {
+    marginTop: 10,
+  },
+  title: {
+    fontSize: 42,
+    fontWeight: '700',
+    color: '#ff4e30',
+    textAlign: 'center',
+  },
+  quoteContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  quote: {
+    fontSize: 25,
+    fontStyle: 'italic',
+    color: '#555',
+    textAlign: 'center',
+    paddingHorizontal: 10,
+  },
+  getStartedButton: {
+    backgroundColor: '#3f51b5',
+    paddingVertical: 16,
+    paddingHorizontal: 80,
+    borderRadius: 30,
+    alignItems: 'center',
+    shadowColor: '#3f51b5',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.5,
+    shadowRadius: 6,
+    elevation: 5,
+    marginBottom: 10,
+  },
+  getStartedButtonText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: '600',
+  },
 });
+
+
+
+
+
