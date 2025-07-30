@@ -41,10 +41,7 @@ const SettingsScreen = ({ navigation }) => {
       <ScrollView style={[styles.container, { paddingHorizontal: 20 }]}>
         {/* Header */}
         <View style={styles.screenHeader}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back" size={26} color={primaryColor} />
-          </TouchableOpacity>
-          <Text style={styles.screenTitle}>Settings</Text>
+          
           <View style={{ width: 26 }} />
         </View>
 

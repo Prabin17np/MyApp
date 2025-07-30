@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import LocationMap from "./LocationMap"; "./LocationMap.js"; // Importing the LocationMap component
+import LocationMap from "./LocationMap";// Importing the LocationMap component
+ 
 import {
   SafeAreaView,
   ScrollView,
@@ -38,13 +39,11 @@ export default function AddTaskScreen({ navigation }) {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView style={[styles.container, { paddingHorizontal: 20 }]}>
+      
+      <ScrollView style={[styles.container, { paddingHorizontal: 20, marginTop: -30, marginBottom: 20 }]}>
         {/* Header */}
         <View style={styles.screenHeader}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back" size={26} color={primaryColor} />
-          </TouchableOpacity>
-          <Text style={styles.screenTitle}>Add New Task</Text>
+          
           <View style={{ width: 26 }} />
         </View>
 

@@ -29,17 +29,13 @@ export default function NotificationsScreen({ navigation }) {
   ];
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <ScrollView
-        style={[styles.container, { paddingHorizontal: 20, marginBottom: 60 }]}
-      >
-        <View style={styles.screenHeader}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back" size={26} color={primaryColor} />
-          </TouchableOpacity>
-          <Text style={styles.screenTitle}>Notifications / Alerts</Text>
-          <View style={{ width: 26 }} />
-        </View>
+  <SafeAreaView style={styles.safeArea}>
+  <ScrollView style={[styles.container, { paddingHorizontal: 20, marginBottom: 60 }]}>
+    <View style={styles.screenHeader}>
+      {/* Empty header, no back icon */}
+      <View style={{ width: 26 }} />
+    </View>
+
 
         <View style={styles.statusRow}>
           <TouchableOpacity style={styles.statusBox}>
